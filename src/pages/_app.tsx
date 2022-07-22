@@ -4,6 +4,8 @@ import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { getCookie, setCookies } from "cookies-next";
 
+import { GlobalStyles } from "@/styles/GlobalStyles";
+
 import type { GetServerSidePropsContext } from "next";
 import type { AppProps } from "next/app";
 import type { ColorScheme } from "@mantine/core";
@@ -45,6 +47,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 					withNormalizeCSS
 					theme={{ colorScheme }}
 				>
+					<GlobalStyles />
 					<Component {...pageProps} />
 				</MantineProvider>
 			</ColorSchemeProvider>
