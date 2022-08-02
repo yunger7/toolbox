@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Box, useMantineColorScheme, useMantineTheme } from "@mantine/core";
 
-import { nord } from "@/styles/nord";
-
 import type { ReactNode } from "react";
 
 type VantaDotsOptions = {
@@ -21,7 +19,7 @@ type VantaDotsOptions = {
 	color2?: string;
 };
 
-/* Globally imported on _document */
+/* Globally imported on `_document.tsx` */
 declare const VANTA: {
 	DOTS: (options: VantaDotsOptions) => any;
 };
@@ -36,6 +34,8 @@ export const DotsBackground = ({ children }: DotsBackgroundProps) => {
 
 	const ref = useRef<HTMLDivElement>(null);
 	const [vantaEffect, setVantaEffect] = useState<any>();
+
+	const { nord } = theme.other;
 
 	useEffect(() => {
 		setBackground();
@@ -60,7 +60,7 @@ export const DotsBackground = ({ children }: DotsBackgroundProps) => {
 				gyroControls: false,
 				backgroundColor:
 					colorScheme == "dark" ? theme.colors.dark["8"] : theme.white,
-				color: nord["10"],
+				color: nord["Frost4"],
 				color2: colorScheme == "dark" ? theme.colors.dark["8"] : theme.white,
 			})
 		);

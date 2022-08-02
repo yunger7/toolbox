@@ -4,7 +4,7 @@ import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { getCookie, setCookies } from "cookies-next";
 
-import { GlobalStyles } from "@/styles/GlobalStyles";
+import { theme, TextSelection, Scrollbar } from "@yungerdev/theme";
 
 import type { GetServerSidePropsContext } from "next";
 import type { AppProps } from "next/app";
@@ -45,9 +45,10 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 				<MantineProvider
 					withGlobalStyles
 					withNormalizeCSS
-					theme={{ colorScheme }}
+					theme={{ ...theme, colorScheme }}
 				>
-					<GlobalStyles />
+					<Scrollbar />
+					<TextSelection />
 					<Component {...pageProps} />
 				</MantineProvider>
 			</ColorSchemeProvider>
