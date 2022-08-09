@@ -72,7 +72,6 @@ export const DotsBackground = ({ children }: DotsBackgroundProps) => {
 			sx={{
 				width: "100%",
 				height: "100%",
-				zIndex: -1,
 			}}
 		>
 			{children}
