@@ -104,19 +104,17 @@ const CaseConverter = () => {
 			}
 		>
 			<form onSubmit={form.onSubmit(convertCase)}>
-				<Stack spacing="sm">
-					<Textarea
-						autosize
-						minRows={2}
-						maxRows={5}
-						placeholder="Start typing..."
-						aria-label="Text to convert"
-						{...form.getInputProps("text")}
-					/>
-					<Group my="md" position="center">
-						<Button type="submit">Convert</Button>
-					</Group>
-				</Stack>
+				<Textarea
+					autosize
+					minRows={2}
+					maxRows={5}
+					placeholder="Start typing..."
+					aria-label="Text to convert"
+					{...form.getInputProps("text")}
+				/>
+				<Group mt="md" position="center">
+					<Button type="submit">Convert</Button>
+				</Group>
 			</form>
 		</Layout>
 	);
