@@ -34,6 +34,8 @@ export const tools: Tool[] = [
 	},
 	{
 		name: "Character count",
+		description:
+			"Count information about your text, such as characters, words, sentences and more.",
 		released: true,
 		href: "/character-count",
 		icon: IconCharacterCount,
