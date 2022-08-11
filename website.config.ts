@@ -42,6 +42,7 @@ export const tools: Tool[] = [
 	},
 	{
 		name: "Lorem ipsum generator",
+		description: "Generate dummy text to use as a placeholder.",
 		released: true,
 		href: "/lorem-ipsum",
 		icon: IconLoremIpsum,
