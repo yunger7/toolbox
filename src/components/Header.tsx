@@ -12,17 +12,34 @@ import { TbSun as IconLight, TbMoon as IconDark } from "react-icons/tb";
 import { Logo } from "@/components/Logo";
 
 type HeaderProps = {
-	opened: boolean;
-	onBurgerClick: () => void;
+	opened?: boolean;
+	onBurgerClick?: () => void;
+	variant?: "landing" | "app";
 };
 
 export const Header = (props: HeaderProps) => {
-	const { opened, onBurgerClick } = props;
+	const { variant = "app", opened = false, onBurgerClick = () => {} } = props;
 
 	const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
 	return (
-		<MantineHeader height={60} p="md">
+		<MantineHeader
+			height={60}
+			p="md"
+			sx={theme => ({
+				...(variant === "landing" && {
+					position: "sticky",
+					backfaceVisibility: "hidden",
+					backdropFilter: "saturate(180%) blur(5px)",
+					backgroundColor: theme.fn.rgba(
+						theme.colorScheme === "dark"
+							? theme.colors.night1["6"]
+							: theme.white,
+						theme.colorScheme === "dark" ? 0.5 : 0.8
+					),
+				}),
+			})}
+		>
 			<Box
 				sx={{
 					display: "flex",
@@ -30,9 +47,11 @@ export const Header = (props: HeaderProps) => {
 					height: "100%",
 				}}
 			>
-				<MediaQuery largerThan="sm" styles={{ display: "none" }}>
-					<Burger opened={opened} onClick={onBurgerClick} size="sm" mr="xs" />
-				</MediaQuery>
+				{variant === "app" && (
+					<MediaQuery largerThan="sm" styles={{ display: "none" }}>
+						<Burger opened={opened} onClick={onBurgerClick} size="sm" mr="xs" />
+					</MediaQuery>
+				)}
 
 				<Logo />
 
