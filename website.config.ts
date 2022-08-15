@@ -19,7 +19,7 @@ type UnreleasedTool = {
 
 export type Tool = (ReleasedTool | UnreleasedTool) & {
 	name: string;
-	description?: string;
+	description: string;
 	icon?: IconType;
 };
 
@@ -49,6 +49,7 @@ export const tools: Tool[] = [
 	},
 	{
 		name: "Strong password generator",
+		description: "Create secure, randomly generated passwords to use online.",
 		released: false,
 		icon: IconStrongPasswordGenerator,
 	},
