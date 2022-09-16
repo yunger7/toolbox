@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Box, useMantineColorScheme, useMantineTheme } from "@mantine/core";
 
 import type { ReactNode } from "react";
