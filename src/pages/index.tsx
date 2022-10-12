@@ -18,6 +18,12 @@ import { TbWand as IconLogo } from "react-icons/tb";
 import { Header } from "@/components/Header";
 import { tools } from "website.config";
 
+import type { Tool } from "website.config";
+
+function getSortedTools(tools: Tool[]) {
+	return tools.sort(t => (t.released ? -1 : 1));
+}
+
 const Home = () => {
 	return (
 		<>
@@ -45,45 +51,43 @@ const Home = () => {
 						{ maxWidth: "xs", cols: 1 },
 					]}
 				>
-					{tools
-						.sort(t => (t.released ? -1 : 1))
-						.map(tool => (
-							<Card withBorder shadow="sm" radius="md" key={tool.name}>
-								<Stack
-									spacing="xs"
-									justify="space-between"
-									sx={{ height: "100%" }}
-								>
-									<Box>
-										<Group position="apart" align="flex-start">
-											{tool.icon && <tool.icon size={42} />}
-											{!tool.released && <Badge color="red">Soon</Badge>}
-										</Group>
-										<Text
-											weight={500}
-											sx={theme => ({
-												marginTop: theme.spacing.xs / 2,
-											})}
-										>
-											{tool.name}
-										</Text>
-										<Text size="sm">{tool.description}</Text>
-									</Box>
-									<Link passHref href={tool.href || ""}>
-										<Button
-											fullWidth
-											component="a"
-											size="sm"
-											variant="outline"
-											mt="sm"
-											disabled={!tool.released}
-										>
-											Use
-										</Button>
-									</Link>
-								</Stack>
-							</Card>
-						))}
+					{tools.map(tool => (
+						<Card withBorder shadow="sm" radius="md" key={tool.name}>
+							<Stack
+								spacing="xs"
+								justify="space-between"
+								sx={{ height: "100%" }}
+							>
+								<Box>
+									<Group position="apart" align="flex-start">
+										{tool.icon && <tool.icon size={42} />}
+										{!tool.released && <Badge color="red">Soon</Badge>}
+									</Group>
+									<Text
+										weight={500}
+										sx={theme => ({
+											marginTop: theme.spacing.xs / 2,
+										})}
+									>
+										{tool.name}
+									</Text>
+									<Text size="sm">{tool.description}</Text>
+								</Box>
+								<Link passHref href={tool.href || ""}>
+									<Button
+										fullWidth
+										component="a"
+										size="sm"
+										variant="outline"
+										mt="sm"
+										disabled={!tool.released}
+									>
+										Use
+									</Button>
+								</Link>
+							</Stack>
+						</Card>
+					))}
 				</SimpleGrid>
 			</Container>
 		</>
