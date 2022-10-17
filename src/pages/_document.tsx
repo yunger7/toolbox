@@ -12,11 +12,11 @@ export default class _Document extends Document {
 			<Html>
 				<Head>
 					<Script
-						src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
+						src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
 						strategy="beforeInteractive"
 					/>
 					<Script
-						src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.dots.min.js"
+						src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.dots.min.js"
 						strategy="beforeInteractive"
 					/>
 					<link

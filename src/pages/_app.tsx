@@ -6,6 +6,8 @@ import { getCookie, setCookies } from "cookies-next";
 
 import { theme, TextSelection, Scrollbar } from "@yungerdev/theme";
 
+import { DotsBackground } from "@/components/DotsBackground";
+
 import type { GetServerSidePropsContext } from "next";
 import type { AppProps } from "next/app";
 import type { ColorScheme } from "@mantine/core";
@@ -49,7 +51,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 				>
 					<Scrollbar />
 					<TextSelection />
-					<Component {...pageProps} />
+					<DotsBackground>
+						<Component {...pageProps} />
+					</DotsBackground>
 				</MantineProvider>
 			</ColorSchemeProvider>
 		</>

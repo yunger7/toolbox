@@ -37,45 +37,44 @@ export const Layout = (props: LayoutProps) => {
 				},
 			}}
 		>
-			<DotsBackground>
-				<Center sx={{ width: "100%", height: "100%" }}>
-					{tool ? (
-						<Paper
-							shadow="xl"
-							sx={theme => ({
-								width: "100%",
-								maxWidth: 750,
-								padding: theme.spacing.xl,
-								margin: theme.spacing.xl,
+			<Center sx={{ width: "100%", height: "100%" }}>
+				{tool ? (
+					<Paper
+						shadow="xl"
+						sx={theme => ({
+							width: "100%",
+							maxWidth: 750,
+							padding: theme.spacing.xl,
+							margin: theme.spacing.xl,
+							zIndex: 1,
 
-								[theme.fn.smallerThan("sm")]: {
-									padding: theme.spacing.md,
-								},
+							[theme.fn.smallerThan("sm")]: {
+								padding: theme.spacing.md,
+							},
 
-								[theme.fn.smallerThan("xs")]: {
-									margin: 0,
-									padding: theme.spacing.xs,
-								},
-							})}
-						>
-							<Stack align="center" spacing={0} mb="lg">
-								{tool.icon && <tool.icon size={42} />}
-								<Title order={2} align="center">
-									{tool.name}
-								</Title>
-								{tool.description && (
-									<Text size="sm" align="center">
-										{tool.description}
-									</Text>
-								)}
-							</Stack>
-							{children}
-						</Paper>
-					) : (
-						children
-					)}
-				</Center>
-			</DotsBackground>
+							[theme.fn.smallerThan("xs")]: {
+								margin: 0,
+								padding: theme.spacing.xs,
+							},
+						})}
+					>
+						<Stack align="center" spacing={0} mb="lg">
+							{tool.icon && <tool.icon size={42} />}
+							<Title order={2} align="center">
+								{tool.name}
+							</Title>
+							{tool.description && (
+								<Text size="sm" align="center">
+									{tool.description}
+								</Text>
+							)}
+						</Stack>
+						{children}
+					</Paper>
+				) : (
+					children
+				)}
+			</Center>
 		</AppShell>
 	);
 };

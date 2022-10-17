@@ -4,7 +4,7 @@ import { Box, useMantineColorScheme, useMantineTheme } from "@mantine/core";
 import type { ReactNode } from "react";
 
 type VantaDotsOptions = {
-	el: HTMLElement | null;
+	el: HTMLElement | string | null;
 	mouseControls?: boolean;
 	touchControls?: boolean;
 	gyroControls?: boolean;
@@ -17,6 +17,7 @@ type VantaDotsOptions = {
 	scaleMobile?: number;
 	color?: string;
 	color2?: string;
+	showLines?: boolean;
 };
 
 /* Globally imported on `_document.tsx` */
@@ -38,6 +39,8 @@ export const DotsBackground = ({ children }: DotsBackgroundProps) => {
 	const { nord } = theme.other;
 
 	useEffect(() => {
+		if (vantaEffect) vantaEffect.destroy();
+
 		setBackground();
 	}, [colorScheme]);
 
@@ -61,20 +64,26 @@ export const DotsBackground = ({ children }: DotsBackgroundProps) => {
 				backgroundColor:
 					colorScheme == "dark" ? theme.colors.dark["8"] : theme.white,
 				color: nord["Frost4"],
-				color2: colorScheme == "dark" ? theme.colors.dark["8"] : theme.white,
+				showLines: false,
 			})
 		);
 	}
 
 	return (
-		<Box
-			ref={ref}
-			sx={{
-				width: "100%",
-				height: "100%",
-			}}
-		>
+		<>
+			<Box
+				ref={ref}
+				sx={{
+					width: "100vw",
+					height: "100vh",
+					position: "fixed",
+					top: 0,
+					left: 0,
+					right: 0,
+					bottom: 0,
+				}}
+			/>
 			{children}
-		</Box>
+		</>
 	);
 };

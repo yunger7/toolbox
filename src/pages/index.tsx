@@ -22,7 +22,7 @@ const Home = () => {
 	return (
 		<>
 			<Header variant="landing" />
-			<Container size="lg" mt="md" py="xl">
+			<Container size="lg" mt="md" py="xl" sx={{ position: "relative" }}>
 				<Title order={1} mb="md">
 					<Group spacing="xs">
 						<IconLogo size={48} color={colors.nord["Frost2"]} />
