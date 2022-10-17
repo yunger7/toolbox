@@ -18,12 +18,6 @@ import { TbWand as IconLogo } from "react-icons/tb";
 import { Header } from "@/components/Header";
 import { tools } from "website.config";
 
-import type { Tool } from "website.config";
-
-function getSortedTools(tools: Tool[]) {
-	return tools.sort(t => (t.released ? -1 : 1));
-}
-
 const Home = () => {
 	return (
 		<>
