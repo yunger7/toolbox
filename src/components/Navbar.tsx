@@ -82,35 +82,33 @@ export const Navbar = ({ opened, settings }: NavbarProps) => {
 						)}
 					</Stack>
 				) : (
-					tools
-						.sort(t => (t.released ? -1 : 1))
-						.map(tool => (
-							<Indicator
-								color="red"
-								label="Soon"
-								size={16}
-								offset={22}
-								disabled={tool.released}
-								key={tool.name}
-								sx={{
-									cursor: tool.released ? "default" : "not-allowed",
-								}}
-							>
-								<Link passHref href={tool.href || ""}>
-									<NavLink
-										component="a"
-										variant="filled"
-										label={tool.name}
-										icon={tool.icon ? <tool.icon size={18} /> : undefined}
-										active={tool.href == router.pathname}
-										disabled={!tool.released}
-										sx={theme => ({
-											borderRadius: theme.radius.sm,
-										})}
-									/>
-								</Link>
-							</Indicator>
-						))
+					tools.map(tool => (
+						<Indicator
+							color="red"
+							label="Soon"
+							size={16}
+							offset={22}
+							disabled={tool.released}
+							key={tool.name}
+							sx={{
+								cursor: tool.released ? "default" : "not-allowed",
+							}}
+						>
+							<Link passHref href={tool.href || ""}>
+								<NavLink
+									component="a"
+									variant="filled"
+									label={tool.name}
+									icon={tool.icon ? <tool.icon size={18} /> : undefined}
+									active={tool.href == router.pathname}
+									disabled={!tool.released}
+									sx={theme => ({
+										borderRadius: theme.radius.sm,
+									})}
+								/>
+							</Link>
+						</Indicator>
+					))
 				)}
 			</MantineNavbar.Section>
 		</MantineNavbar>
