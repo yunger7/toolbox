@@ -26,19 +26,11 @@ export const Header = (props: HeaderProps) => {
 		<MantineHeader
 			height={60}
 			p="md"
-			sx={theme => ({
+			sx={{
 				...(variant === "landing" && {
 					position: "sticky",
-					backfaceVisibility: "hidden",
-					backdropFilter: "saturate(180%) blur(5px)",
-					backgroundColor: theme.fn.rgba(
-						theme.colorScheme === "dark"
-							? theme.colors.night1["6"]
-							: theme.white,
-						theme.colorScheme === "dark" ? 0.5 : 0.8
-					),
 				}),
-			})}
+			}}
 		>
 			<Box
 				sx={{
